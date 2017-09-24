@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Reaction Tester</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    
+	<style> 
+	#redBox {
+	background-color:red;
+	width:100px;
+	height:100px;
+	margin: 20px 50px 50px 10px;
+	border-radius:50px;
+	display:none;
+	position:relative;
+	
+	}
+	</style>
+	
+    
+</head>
+
+<body>
+
+	<p>Your time: <span id="time"></span></p>
+	
+	<button id="redBox"> </button>
+	
+	
+
+	<script type="text/javascript">
+	
+	function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+        //color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+	
+	var clickedTime; var createdTime; var reactinTime;
+	
+	
+	
+	function makeBox() {
+	
+		//createdTime=Date.now();
+	
+		var time=Math.random();
+		
+		time=time*5000;
+	
+		setTimeout(function() {
+		//if u want to appear it randomly from square to circle. 
+		if (Math.random()>0.5) {
+			document.getElementById("redBox").style.borderRadius="50px";
+		} else {
+			document.getElementById("redBox").style.borderRadius="0";
+		} /* */
+		
+		
+		//these lines are not working. solved
+		var top=Math.random();
+		top=top*300;
+		var left=Math.random();
+		left=left*500;
+		document.getElementById("redBox").style.top=top+"px";
+		document.getElementById("redBox").style.left=left+"px";/* */
+		
+		//something wrong! the color wouldn't change. Solved
+		document.getElementById("redBox").style.backgroundColor=getRandomColor();
+		
+		document.getElementById("redBox").style.display="block";
+		
+		
+		createdTime=Date.now();
+	
+		}, time);
+	
+	}
+	
+	document.getElementById("redBox").onclick=function() {
+		
+		clickedTime=Date.now();
+		
+		reactionTime=(clickedTime-createdTime)/1000;
+		document.getElementById("time").innerHTML=reactionTime;
+		
+		
+	
+		this.style.display ="none";
+		
+		makeBox();
+	
+	}
+	
+	makeBox();
+	
+	/*
+	background-color:red;
+	margin: 20px 50px 50px 10px;
+	border-radius:50px;
+	*/
+	</script>
+</body>
+</html>

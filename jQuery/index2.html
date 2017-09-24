@@ -1,0 +1,198 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Example jQuery</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    
+    <style>
+    
+    #wrapper {
+    	width:600px;
+    	margin:0 auto;
+    	font-family: helvetica;
+    	font-size:1.2em;
+    }
+    input {
+    	width:200px;
+    	height:30px;
+    	padding:5px;
+    	border-radius:5px;
+    	font-size:1.2em;
+    	border: 1px solid grey;
+    	margin-bottom:20px;
+    }
+    label {
+    	width:200px;
+    	float:left;
+    	padding-top:7px;
+    }
+    #submit {
+    	height:50px;
+    	width:100px;
+    	margin-left:200px;
+    }
+    #error {
+    	color:red;
+    	margin:20px;
+    }
+    #succed {
+    	color:green;
+    	margin-left:200px;
+    	
+    }
+    
+    #square {
+    	width:300px;
+    	height:300px;
+    	background-color:grey;
+    }
+ 	#square2 {
+    	width:200px;
+    	height:200px;
+    	background-color:green;
+    }
+    #square3 {
+    	width:200px;
+    	height:200px;
+    	background-color:red;
+    }
+        
+    </style>
+</head>
+
+<body>
+
+	<h1>some big text</h1>
+	<div id="wrapper">
+	
+	<div id="error"></div>
+	<form id="validationForm">
+	<label for="email">Email</label>
+	<input name="email" id="email"></input>
+
+	<label for="phone">Phone</label>
+	<input name="phone" id="phone"></input>
+	
+	<label for="pass">Password</label>
+	<input name="password" id="pass1" type="password"></input>
+	
+	<label for="pass">Confirm Password</label>
+	<input name="repassword" id="pass2" type="password"></input>
+	
+	<input id="submit" type="submit" value="submit"></input>
+	
+	<div id="succed"></div>
+	
+	
+	<div id="square"></div>
+	<div id="square2">Drag me around</div>
+	<div id="square3">Resize me</div>
+	
+	</form>
+	</div>
+	<div id="accordion">
+	<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+		<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+		<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+		<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+		<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+		<h3>Title</h3>
+	<div>This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. This is some text. </div>
+	</div>
+	
+	<ul>
+		<li>pizza</li>
+		<li>pasta</li>
+		<li>burger</li>
+		<li>steak</li>
+	</ul>
+	<script>
+	
+	$("#validationForm").submit(function(event) {
+	//alert("test");
+	var errorMessage="";
+	
+		event.preventDefault();
+		
+		function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};
+		if (!isValidEmailAddress($("#email").val())){	
+			errorMessage="<br />please enter a valid email address";
+			//$("#error").html("please enter a valid email address");
+			//alert("not valid");
+		}
+		
+		if (!$.isNumeric($("#phone").val())){	
+			errorMessage=errorMessage+"<br />please enter a valid phone number";
+		}
+		
+		if ($("#pass1").val() != $("#pass2").val()){	
+			errorMessage=errorMessage+"<br />please enter matching password";
+		}
+		else {
+		$("#succed").html("Register Complete!");
+		}
+		
+	/* //another way for password method.
+	var pass = $('input[name=password]').val();
+  	var repass = $('input[name=repassword]').val();
+		if(($('input[name=password]').val().length == 0) || ($('input[name=repassword]').val().length == 0)){
+        errorMessage=errorMessage+"<br />please enter a same pass";
+    } else if (pass != repass) {
+        errorMessage=errorMessage+"<br />please enter  a same pass";
+    }*/
+		
+		$("#error").html(errorMessage);
+	});
+
+	$("#square").droppable({
+		drop: function(ui, event) {
+			//alert("dropped");
+			$("#square").css("background-color","yellow");
+		}
+	});
+	$("#square2").draggable();
+	$("#square3").resizable();
+	$("#accordion").accordion();
+	$("ul").sortable();
+
+
+	/*$.get("test.html", function(data){
+		alert(data);
+	})*/
+	//important func. for coding carrer.
+	$.ajax({
+	url:"test.html"}).done(function(data){
+		$("h1").append(data);
+		//$("h1").html(data);
+	})
+	//important func. for coding carrer.
+	var regex=/great/;
+	var string="Regex is great!";
+	var result = string.match(regex);
+	 //alert(result);
+	
+	//this is a check code.
+	if (typeof jQuery !="undefined") {
+		//alert('jQuery is installed!');
+	} else {
+		//alert('jQuery is not installed!');
+	}
+	</script>
+	
+</body>
+</html>

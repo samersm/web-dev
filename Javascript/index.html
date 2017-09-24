@@ -1,0 +1,231 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>Example Javascript</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+</head>
+
+<body>
+
+	<input id="myinput" type="text" value="test" />
+	<button id="styleChanger">Change the Text</button>
+	<div id="3stdiv">Hi everyone!!</div>
+	
+	<p id="text">Awesome</p>
+
+	<button onclick="alert('Hi')">Click Me</button>
+	
+	<button id="anotherOne">oops!</button>
+	
+	<div id="1stdiv">come on</div>
+	
+	<button id="OMG">ok</button>
+	
+	<div id="2stdiv">Alright</div>
+	
+	<button id="textCreator">Create texts</button>
+	
+	<div id="empityDiv"></div>
+	
+	<button id="arrayButton"> arrayTest </button>
+	<div id="arrayDiv"> tryArray</div>
+	
+	<button id="redBox"> </button>
+	
+		
+	<p>what is the weather?</p>
+  <input id="weather" />
+  <button id="myButton">Submit</button>
+  <div id="resault"></div>
+	
+	  <p>guess the number from 0 to 5 ???</p>
+  <input id="answer" />
+  <button id="myButton2">Submit</button>
+  <div id="guessresault"></div>
+	
+	
+	  <p id="arrayString"></p>
+	  
+	  
+	  <p>how many fingers are you holding up?</p>
+  
+<input id="myNumber" />
+  
+  <button id="guess">Guess!</button>
+  <div id="result2"></div>
+	
+	
+	<button id="paragraphButton">Submit</button>
+  <p id="paragraph">the result</p>
+	
+	
+	<style> 
+	#redBox {
+	background-color:red;
+	width:100px;
+	height:100px;
+	margin: 20px 50px 50px 10px;
+	border-radius:50px;
+	
+	}
+	</style>
+	
+	<script type="text/javascript">
+	
+	
+	var myArray =new Array();
+	
+	myArray[0]="pizza";
+	myArray[1]="chocolate";
+	
+	/* -something wrong with this one-
+	consol.log(myArray);
+	
+	myOtherArray=["rain","sunrise"];
+	
+	myOtherArray.push("snow");
+	
+	myOtherArray.splice(1, 0, "hail", "cloudy");
+	
+	consol.log(myOtherArray);*/
+	
+	var newText=document.getElementById("myinput").value;
+	
+	var x=Math.random();
+      
+      x=6*x;
+      
+      x=Math.floor(x);
+      
+      document.getElementById("guess").onclick=function() {
+  
+  //I changed x to y in here
+  var gotit=false; var guesses=1; var y;
+  
+  while (gotit==false) {
+    
+    y=Math.random();
+    
+    y=6*y;
+    
+    y=Math.floor(y);
+    
+    if (document.getElementById("myNumber").value==y) {
+      
+      gotit=true;
+      
+    } else {
+      
+      guesses++;
+      
+    }
+  }
+   alert("Got it! It was a "+y+". It only took me "+guesses+" guesses!")
+    }  
+      
+       var arrayString="";
+      
+      var myArray=["chocolate", "ice cream", "cake"];
+      
+      for (var i=0; i<myArray.length; i++) {
+        
+               arrayString=arrayString+myArray[i]+" ";
+        
+      }
+	
+	
+	function adding(a, b) {
+        
+        return(a+b);
+        
+      }
+          document.getElementById("paragraph").innerHTML=adding(10, 20);
+      
+	
+	
+	// var divID="3stdiv";
+	
+	document.getElementById("styleChanger").onclick=function() {
+	
+		newText=document.getElementById("myinput").value;
+	
+		document.getElementById("3stdiv").innerHTML=newText;
+	
+	}
+	
+	
+	// this is a comment
+	
+	/* 
+	some weird things
+	*/
+	
+	document.getElementById("anotherOne").onclick=function() {
+	
+		document.getElementById("1stdiv").innerHTML="this is not cool!";
+	
+	}
+	document.getElementById("OMG").onclick=function() {
+	
+		document.getElementById("2stdiv").innerHTML=document.getElementById("2stdiv").innerHTML + " great!";
+	
+	}
+	
+	document.getElementById("textCreator").onclick=function() {
+	
+		document.getElementById("empityDiv").innerHTML="<ul><li>cat</li><li>dog</li></ul>";
+	
+	}
+	
+	
+		
+	document.getElementById("redBox").onclick=function() {
+	
+		document.getElementById("redBox").style.display = 'none';
+	
+	}
+	
+	
+	
+	document.getElementById("arrayButton").onclick=function() {
+	
+		document.getElementById("arrayDiv").innerHTML=myArray[1];
+	
+	}
+	
+	document.getElementById("myButton").onclick=function() {
+          
+          if (document.getElementById("weather").value=="rain") {
+            
+            document.getElementById("resault").innerHTML="it's raining";
+            
+          } else {
+            document.getElementById("resault").innerHTML="it's not raining!";
+            
+          }
+          
+	}
+	
+
+      document.getElementById("myButton2").onclick=function() {
+      if (x==document.getElementById("answer").value) {
+        
+        document.getElementById("guessresault").innerHTML="that's correct!"; } else {
+          
+          document.getElementById("guessresault").innerHTML="that's wrong! the number was "+x;
+          
+        }
+        }
+	
+	document.getElementById("arrayString").innerHTML=arrayString;
+	
+	//alert("page loaded!");
+	
+	</script>
+</body>
+</html>
